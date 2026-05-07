@@ -2,6 +2,7 @@
 
 import { useState } from 'react';
 import { MapPin, Phone, Mail, AlertTriangle, CheckCircle, Users, GraduationCap } from 'lucide-react';
+import FloridaMap from '@/components/FloridaMap';
 
 export default function Dashboard() {
   // Mock data - will replace with real Supabase data
@@ -156,14 +157,9 @@ export default function Dashboard() {
               </div>
             </div>
             
-            {/* Map Container */}
-            <div className="h-96 bg-gray-100 rounded-lg flex items-center justify-center">
-              <div className="text-center text-gray-500">
-                <MapPin className="w-12 h-12 mx-auto mb-2" />
-                <p className="text-sm">Interactive Florida Map</p>
-                <p className="text-xs mt-1">Clustered view: 1,200+ clinics</p>
-                <p className="text-xs text-gray-400 mt-2">(Leaflet map integration coming)</p>
-              </div>
+            {/* Interactive Florida Map */}
+            <div className="h-96 rounded-lg overflow-hidden border border-gray-200">
+              <FloridaMap />
             </div>
 
             {/* Map Legend */}
