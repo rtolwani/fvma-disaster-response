@@ -48,12 +48,10 @@ export default function Dashboard() {
       <header className="bg-white border-b border-gray-200">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-4">
           <div className="flex items-center justify-between">
-            <div className="flex items-center gap-3">
-              <div className="w-10 h-10 bg-blue-600 rounded-lg flex items-center justify-center">
-                <span className="text-white font-bold text-lg">F</span>
-              </div>
-              <div>
-                <h1 className="text-xl font-bold text-gray-900">FVMA Disaster Response</h1>
+            <div className="flex items-center gap-4">
+              <img src="/fvma-logo.png" alt="FVMA" className="h-12 w-auto" />
+              <div className="border-l border-gray-300 pl-4">
+                <h1 className="text-xl font-bold text-gray-900">Disaster Response</h1>
                 <p className="text-sm text-gray-600">Emergency Coordination Dashboard</p>
               </div>
             </div>
@@ -70,10 +68,11 @@ export default function Dashboard() {
       {/* Stats Bar */}
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-6">
         <div className="grid grid-cols-5 gap-4">
+          {/* Responded - Teal (matches FVMA logo) */}
           <div className="bg-white rounded-xl p-4 shadow-sm border border-gray-200">
             <div className="flex items-center gap-3">
-              <div className="w-10 h-10 bg-blue-100 rounded-lg flex items-center justify-center">
-                <CheckCircle className="w-6 h-6 text-blue-600" />
+              <div className="w-10 h-10 bg-teal-100 rounded-lg flex items-center justify-center">
+                <CheckCircle className="w-6 h-6 text-teal-600" />
               </div>
               <div>
                 <p className="text-sm text-gray-600">Responded</p>
@@ -82,18 +81,20 @@ export default function Dashboard() {
             </div>
           </div>
 
+          {/* Need Help - Orange/Pink (matches FVMA logo) */}
           <div className="bg-white rounded-xl p-4 shadow-sm border border-gray-200">
             <div className="flex items-center gap-3">
-              <div className="w-10 h-10 bg-orange-100 rounded-lg flex items-center justify-center">
-                <AlertTriangle className="w-6 h-6 text-orange-600" />
+              <div className="w-10 h-10 bg-pink-100 rounded-lg flex items-center justify-center">
+                <AlertTriangle className="w-6 h-6 text-pink-600" />
               </div>
               <div>
                 <p className="text-sm text-gray-600">Need Help</p>
-                <p className="text-2xl font-bold text-orange-600">{stats.needHelp}</p>
+                <p className="text-2xl font-bold text-pink-600">{stats.needHelp}</p>
               </div>
             </div>
           </div>
 
+          {/* Critical - Red */}
           <div className="bg-white rounded-xl p-4 shadow-sm border border-gray-200">
             <div className="flex items-center gap-3">
               <div className="w-10 h-10 bg-red-100 rounded-lg flex items-center justify-center">
@@ -106,6 +107,7 @@ export default function Dashboard() {
             </div>
           </div>
 
+          {/* Safe - Green */}
           <div className="bg-white rounded-xl p-4 shadow-sm border border-gray-200">
             <div className="flex items-center gap-3">
               <div className="w-10 h-10 bg-green-100 rounded-lg flex items-center justify-center">
@@ -118,14 +120,15 @@ export default function Dashboard() {
             </div>
           </div>
 
+          {/* CE Opt-In - Navy Blue (matches FVMA logo) */}
           <div className="bg-white rounded-xl p-4 shadow-sm border border-gray-200">
             <div className="flex items-center gap-3">
-              <div className="w-10 h-10 bg-purple-100 rounded-lg flex items-center justify-center">
-                <GraduationCap className="w-6 h-6 text-purple-600" />
+              <div className="w-10 h-10 bg-blue-900 rounded-lg flex items-center justify-center">
+                <GraduationCap className="w-6 h-6 text-white" />
               </div>
               <div>
                 <p className="text-sm text-gray-600">CE Opt-In</p>
-                <p className="text-2xl font-bold text-purple-600">{stats.ceOptIn}</p>
+                <p className="text-2xl font-bold text-blue-900">{stats.ceOptIn}</p>
               </div>
             </div>
           </div>
@@ -214,17 +217,17 @@ export default function Dashboard() {
           </div>
         </div>
 
-        {/* Action Buttons */}
+        {/* Action Buttons - FVMA Brand Colors */}
         <div className="mt-6 flex items-center justify-end gap-3">
-          <button className="px-6 py-3 bg-blue-600 text-white rounded-lg font-medium hover:bg-blue-700 flex items-center gap-2">
+          <button className="px-6 py-3 bg-blue-900 text-white rounded-lg font-medium hover:bg-blue-800 flex items-center gap-2">
             <Phone className="w-5 h-5" />
             Start Voice Calls
           </button>
-          <button className="px-6 py-3 bg-green-600 text-white rounded-lg font-medium hover:bg-green-700 flex items-center gap-2">
+          <button className="px-6 py-3 bg-teal-600 text-white rounded-lg font-medium hover:bg-teal-700 flex items-center gap-2">
             <Mail className="w-5 h-5" />
             Launch SMS Campaign
           </button>
-          <button className="px-6 py-3 bg-gray-700 text-white rounded-lg font-medium hover:bg-gray-800 flex items-center gap-2">
+          <button className="px-6 py-3 bg-pink-600 text-white rounded-lg font-medium hover:bg-pink-700 flex items-center gap-2">
             <Users className="w-5 h-5" />
             Export CSV
           </button>
