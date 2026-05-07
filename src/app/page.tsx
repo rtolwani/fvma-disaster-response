@@ -1,8 +1,20 @@
 'use client';
 
-import { useState } from 'react';
+import { useState, Suspense } from 'react';
+import dynamic from 'next/dynamic';
 import { MapPin, Phone, Mail, AlertTriangle, CheckCircle, Users, GraduationCap } from 'lucide-react';
-import FloridaMap from '@/components/FloridaMap';
+
+// Dynamic import for Leaflet map (client-side only)
+const FloridaMap = dynamic(() => import('../components/FloridaMap'), {
+  ssr: false,
+  loading: () => (
+    <div className="h-full w-full flex items-center justify-center bg-gray-100">
+      <div className="text-center text-gray-500">
+        <p className="text-sm">Loading Florida map...</p>
+      </div>
+    </div>
+  ),
+});
 
 export default function Dashboard() {
   // Mock data - will replace with real Supabase data
@@ -159,7 +171,13 @@ export default function Dashboard() {
             
             {/* Interactive Florida Map */}
             <div className="h-96 rounded-lg overflow-hidden border border-gray-200">
-              <FloridaMap />
+              <Suspense fallback={
+                <div className="h-full w-full flex items-center justify-center bg-gray-100">
+                  <p className="text-sm text-gray-500">Loading map...</p>
+                </div>
+              }>
+                <FloridaMap />
+              </Suspense>
             </div>
 
             {/* Map Legend */}
