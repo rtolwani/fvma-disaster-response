@@ -2,7 +2,7 @@
 
 import { useState, Suspense } from 'react';
 import dynamic from 'next/dynamic';
-import { MapPin, Phone, Mail, AlertTriangle, CheckCircle, Users, GraduationCap } from 'lucide-react';
+import { MapPin, Phone, Mail, AlertTriangle, CheckCircle, Users, GraduationCap, Send } from 'lucide-react';
 
 // Dynamic import for Leaflet map (client-side only)
 const FloridaMap = dynamic(() => import('../components/FloridaMap'), {
@@ -233,14 +233,13 @@ export default function Dashboard() {
 
         {/* Action Buttons - FVMA Brand Colors */}
         <div className="mt-6 flex items-center justify-end gap-3">
-          <button className="px-6 py-3 bg-blue-900 text-white rounded-lg font-medium hover:bg-blue-800 flex items-center gap-2">
-            <Phone className="w-5 h-5" />
-            Start Voice Calls
-          </button>
-          <button className="px-6 py-3 bg-teal-600 text-white rounded-lg font-medium hover:bg-teal-700 flex items-center gap-2">
-            <Mail className="w-5 h-5" />
-            Launch SMS Campaign
-          </button>
+          <a
+            href="/admin/outreach"
+            className="px-6 py-3 bg-gradient-to-r from-blue-900 via-teal-600 to-purple-600 text-white rounded-lg font-medium hover:from-blue-800 hover:via-teal-500 hover:to-purple-500 flex items-center gap-2 shadow-lg"
+          >
+            <Send className="w-5 h-5" />
+            Launch Multi-Channel Campaign
+          </a>
           <button className="px-6 py-3 bg-pink-600 text-white rounded-lg font-medium hover:bg-pink-700 flex items-center gap-2">
             <Users className="w-5 h-5" />
             Export CSV
